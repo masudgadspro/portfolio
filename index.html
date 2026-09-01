@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD. Masudur Rahman — Google Ads Strategist</title>
+<meta name="description" content="Google Ads Strategist helping agencies and local service businesses turn ad spend into qualified leads. $10M+ managed, 500+ campaigns, UK/USA/Canada.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12181F;
+    --blue:#2F5FA3;
+    --blue-deep:#1E3F73;
+    --grid:#D3DEE9;
+    --paper:#F6F4EE;
+    --paper-warm:#EFEBE1;
+    --orange:#E1611F;
+    --text:#1B2027;
+    --text-soft:#565F6B;
+    --line:#C7CDD6;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    color:var(--ink);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  /* blueprint grid background */
+  .blueprint{
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:40px 40px;
+  }
+
+  /* ---- Header ---- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,244,238,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600; font-size:1.05rem; color:var(--ink);
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .mark{
+    width:28px; height:28px; border:2px solid var(--blue-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; font-weight:500;
+    color:var(--blue-deep); flex-shrink:0;
+  }
+  nav.links{display:flex; gap:28px; font-size:0.92rem; color:var(--text-soft);}
+  nav.links a:hover{color:var(--orange);}
+  .nav-cta{
+    display:inline-block; padding:9px 18px; border:1.5px solid var(--ink);
+    font-size:0.88rem; font-weight:500; color:var(--ink);
+    transition:background .15s, color .15s;
+  }
+  .nav-cta:hover{background:var(--ink); color:var(--paper);}
+  .burger{display:none;}
+  @media(max-width:800px){
+    nav.links{display:none;}
+    .burger{display:block; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; border:1px solid var(--ink); padding:8px 12px;}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:90px 0 70px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media(max-width:860px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero-photo{
+    width:64px; height:64px; border:1.5px solid var(--ink); overflow:hidden;
+    flex-shrink:0;
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover; object-position:top;}
+
+  .tag-strip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--blue-deep);
+    letter-spacing:0.02em;
+    margin-bottom:22px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .tag-strip::before{
+    content:''; width:26px; height:1px; background:var(--orange);
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.6vw, 3.4rem);
+    font-weight:600;
+    max-width:640px;
+  }
+  .hero h1 .accent{color:var(--blue-deep);}
+  .hero p.lede{
+    margin-top:22px; font-size:1.08rem; color:var(--text-soft);
+    max-width:520px;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--orange); color:var(--white); padding:14px 24px;
+    font-weight:500; font-size:0.95rem; border:1.5px solid var(--orange);
+    transition:opacity .15s;
+  }
+  .btn-primary:hover{opacity:0.88;}
+  .btn-secondary{
+    padding:14px 24px; border:1.5px solid var(--ink); font-weight:500;
+    font-size:0.95rem; color:var(--ink); transition:background .15s, color .15s;
+  }
+  .btn-secondary:hover{background:var(--ink); color:var(--paper);}
+
+  /* spec panel */
+  .spec-panel{
+    border:1.5px solid var(--ink);
+    background:var(--white);
+    padding:0;
+  }
+  .spec-head{
+    padding:14px 20px;
+    border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+    color:var(--text-soft);
+  }
+  .spec-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:20px 20px; border-bottom:1px solid var(--line);
+  }
+  .spec-row:last-child{border-bottom:none;}
+  .spec-num{
+    font-family:'Space Grotesk', sans-serif; font-weight:700;
+    font-size:1.9rem; color:var(--ink);
+  }
+  .spec-label{
+    font-size:0.82rem; color:var(--text-soft); max-width:150px; text-align:right;
+  }
+
+  /* ---- section shell ---- */
+  section{padding:78px 0;}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:44px;
+    border-bottom:1px solid var(--line); padding-bottom:20px;
+  }
+  .section-head .idx{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--orange);
+  }
+  .section-head h2{font-size:clamp(1.5rem,2.6vw,2rem); font-weight:600;}
+  .section-sub{color:var(--text-soft); font-size:1rem; max-width:560px; margin-top:8px;}
+
+  /* ---- services ---- */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  @media(max-width:700px){ .services-grid{grid-template-columns:1fr;} }
+  .service-card{
+    background:var(--paper); padding:32px;
+  }
+  .service-card h3{
+    font-size:1.15rem; font-weight:600; margin-bottom:10px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .service-card .dot{
+    width:8px; height:8px; background:var(--blue-deep); flex-shrink:0;
+  }
+  .service-card p{color:var(--text-soft); font-size:0.95rem;}
+
+  /* ---- industries ---- */
+  .industry-band{
+    background:var(--ink); color:var(--paper);
+  }
+  .industry-band .section-head{border-color:rgba(255,255,255,0.15);}
+  .industry-band .section-head h2{color:var(--paper);}
+  .industry-band .section-head .idx{color:var(--orange);}
+  .industry-band .section-sub{color:rgba(246,244,238,0.65);}
+  .industry-tags{
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .industry-tags span{
+    border:1px solid rgba(246,244,238,0.3);
+    padding:9px 16px; font-size:0.88rem; color:rgba(246,244,238,0.9);
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  /* ---- process ---- */
+  .process-list{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border-top:1px solid var(--line);
+  }
+  @media(max-width:800px){ .process-list{grid-template-columns:1fr;} }
+  .process-step{
+    padding:28px 26px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .process-list .process-step:last-child{border-right:none;}
+  @media(max-width:800px){ .process-step{border-right:none;} }
+  .process-step .step-num{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--orange);
+    margin-bottom:14px; display:block;
+  }
+  .process-step h3{font-size:1.02rem; font-weight:600; margin-bottom:8px;}
+  .process-step p{color:var(--text-soft); font-size:0.9rem;}
+
+  /* ---- about / credentials ---- */
+  .about-grid{display:grid; grid-template-columns:0.85fr 1fr 1fr; gap:44px; align-items:start;}
+  @media(max-width:900px){ .about-grid{grid-template-columns:1fr; gap:28px;} }
+  .about-grid p{color:var(--text-soft); margin-bottom:16px; font-size:1rem;}
+  .portrait-frame{
+    border:1.5px solid var(--ink); background:var(--white); padding:10px;
+  }
+  .portrait-frame img{ width:100%; height:auto; display:block; filter:grayscale(15%); }
+  .portrait-caption{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:12px 4px 2px; font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
+    color:var(--text-soft);
+  }
+  .cred-list{border-top:1px solid var(--line);}
+  .cred-item{
+    display:flex; justify-content:space-between; padding:16px 0;
+    border-bottom:1px solid var(--line); font-size:0.94rem;
+  }
+  .cred-item .cred-label{color:var(--text-soft);}
+  .cred-item .cred-val{font-weight:500; color:var(--ink);}
+  .lang-strip{margin-top:24px; font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--text-soft);}
+
+  /* ---- contact ---- */
+  .contact{
+    background:var(--paper-warm); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .contact-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;
+  }
+  @media(max-width:800px){ .contact-grid{grid-template-columns:1fr; gap:36px;} }
+  .contact h2{font-size:clamp(1.6rem,3vw,2.3rem); font-weight:600; max-width:480px;}
+  .contact p.lede{color:var(--text-soft); margin-top:16px; max-width:460px;}
+  .contact-links{display:flex; flex-direction:column; gap:0; border:1.5px solid var(--ink); background:var(--white);}
+  .contact-link{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 24px; border-bottom:1px solid var(--line); font-size:0.98rem;
+    transition:background .15s;
+  }
+  .contact-link:last-child{border-bottom:none;}
+  .contact-link:hover{background:var(--paper);}
+  .contact-link .lbl{color:var(--text-soft); font-size:0.78rem; font-family:'IBM Plex Mono',monospace;}
+  .contact-link .val{font-weight:500; color:var(--ink);}
+
+  footer{
+    padding:34px 0; text-align:center; color:var(--text-soft); font-size:0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><span class="mark">MR</span> Masudur Rahman</div>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Request Audit</a>
+  </div>
+</header>
+
+<section class="hero blueprint">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="tag-strip" style="align-items:center;">
+        <span class="hero-photo"><img src="profile.jpg" alt="MD. Masudur Rahman"></span>
+        GOOGLE ADS STRATEGIST · UK / USA / CANADA
+      </div>
+      <h1>Ad spend that turns into <span class="accent">booked jobs</span>, not just clicks.</h1>
+      <p class="lede">I build and manage Google Ads accounts for agencies and local service businesses, roofing, HVAC, plumbing, construction, and beyond, focused on lead quality and conversion tracking, not vanity metrics.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Request a Free Audit</a>
+        <a href="#services" class="btn-secondary">See What I Do</a>
+      </div>
+    </div>
+    <div class="spec-panel">
+      <div class="spec-head"><span>TRACK RECORD</span><span>SPEC-01</span></div>
+      <div class="spec-row">
+        <span class="spec-num">$10M+</span>
+        <span class="spec-label">Ad spend managed across active accounts</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-num">500+</span>
+        <span class="spec-label">Google Ads campaigns built and optimized</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-num">200+</span>
+        <span class="spec-label">Client projects delivered, agency + local business</span>
+      </div>
+      <div class="spec-row">
+        <span class="spec-num">5 yrs</span>
+        <span class="spec-label">Hands-on performance marketing experience</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="idx">01</span>
+      <div>
+        <h2>What I handle end to end</h2>
+        <p class="section-sub">No template packages. Every account is built around the specific market, budget, and sales process behind it.</p>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3><span class="dot"></span>Google Ads Management</h3>
+        <p>Search, Performance Max, and Shopping campaigns built to bring the right traffic, structured around real search intent, not just volume.</p>
+      </div>
+      <div class="service-card">
+        <h3><span class="dot"></span>Conversion Tracking</h3>
+        <p>GA4, Google Tag Manager, enhanced conversions, and call tracking set up correctly, so decisions are based on real data, not guesswork.</p>
+      </div>
+      <div class="service-card">
+        <h3><span class="dot"></span>Landing Pages &amp; CRO</h3>
+        <p>Pages that match the ad, load fast, and are built to convert visitors into calls and form submissions, not just look good.</p>
+      </div>
+      <div class="service-card">
+        <h3><span class="dot"></span>Local Search &amp; GBP</h3>
+        <p>Google Business Profile optimization and local search presence, so service-area businesses capture more high-intent nearby customers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industries" class="industry-band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="idx">02</span>
+      <div>
+        <h2>Industries I've worked across</h2>
+        <p class="section-sub">120+ local service niches, with the deepest experience in trades and home services.</p>
+      </div>
+    </div>
+    <div class="industry-tags">
+      <span>HVAC</span><span>Roofing</span><span>Plumbing</span><span>Electrical</span>
+      <span>Garage Door</span><span>Water Damage Restoration</span><span>Flooring</span>
+      <span>General Contractors</span><span>Landscaping</span><span>Tree Services</span>
+      <span>Pest Control</span><span>Locksmith</span><span>Moving</span>
+      <span>Dental &amp; Medical Clinics</span><span>Auto Repair</span><span>Home Builders</span>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="idx">03</span>
+      <div>
+        <h2>How an account gets fixed</h2>
+        <p class="section-sub">A structured four-step process, run the same way whether it's a new build or an audit of an underperforming account.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="padding:0;">
+    <div class="process-list">
+      <div class="process-step">
+        <span class="step-num">STEP 01</span>
+        <h3>Audit</h3>
+        <p>Full review of account structure, tracking, and spend, identifying exactly where budget is being wasted.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">STEP 02</span>
+        <h3>Rebuild</h3>
+        <p>Restructure campaigns around real search intent, negative keywords, and conversion-focused bidding.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">STEP 03</span>
+        <h3>Track</h3>
+        <p>Set up clean GA4 and GTM tracking so every lead, call, and form fill is measured accurately.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">STEP 04</span>
+        <h3>Optimize</h3>
+        <p>Ongoing testing and reporting, with monthly Looker Studio reports so results are always visible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="idx">04</span>
+      <div>
+        <h2>About</h2>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div>
+        <div class="portrait-frame">
+          <img src="profile.jpg" alt="MD. Masudur Rahman, Google Ads Strategist">
+        </div>
+        <div class="portrait-caption">
+          <span>MD. MASUDUR RAHMAN</span><span>JESSORE, BD</span>
+        </div>
+      </div>
+      <div>
+        <p>I'm MD. Masudur Rahman, a Google Ads Strategist based in Jessore, Bangladesh, and Co-Founder of Circle Ad Agency. Over the past 5 years I've managed campaigns for agencies and local service businesses across the UK, USA, and Canada.</p>
+        <p>I also lead a team of 12 Google Ads specialists as Account Manager at Ispyro, and work directly with local business owners through freelance projects on Fiverr.</p>
+        <p>Whether you're an agency looking for a reliable white-label partner, or a local business owner trying to make sense of an underperforming account, I work directly on the account, no layers of juniors in between.</p>
+      </div>
+      <div>
+        <div class="cred-list">
+          <div class="cred-item"><span class="cred-label">Education</span><span class="cred-val">MBA, Stamford University Bangladesh</span></div>
+          <div class="cred-item"><span class="cred-label">Certification</span><span class="cred-val">Conversion Optimization Certification</span></div>
+          <div class="cred-item"><span class="cred-label">Current Role</span><span class="cred-val">Co-Founder, Circle Ad Agency</span></div>
+          <div class="cred-item"><span class="cred-label">Also</span><span class="cred-val">Account Manager, Ispyro (team of 12)</span></div>
+        </div>
+        <div class="lang-strip">LANGUAGES: English · Bengali · German · French · Spanish</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Let's look at your account.</h2>
+      <p class="lede">Send me your current setup or a bit about your business, and I'll send back a free, no-obligation review, what's working, what's wasting spend, and what I'd fix first.</p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="https://wa.me/8801718455840" target="_blank" rel="noopener">
+        <span class="lbl">WHATSAPP</span><span class="val">+880 1718455840</span>
+      </a>
+      <a class="contact-link" href="mailto:masudurr98@gmail.com">
+        <span class="lbl">EMAIL</span><span class="val">masudurr98@gmail.com</span>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/masudgadspro" target="_blank" rel="noopener">
+        <span class="lbl">LINKEDIN</span><span class="val">linkedin.com/in/masudgadspro</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  MD. Masudur Rahman — Google Ads Strategist. Circle Ad Agency, Jessore, Bangladesh.
+</footer>
+
+</body>
+</html>
