@@ -163,13 +163,33 @@
   }
   .service-list li::before{ content:'✓'; color:var(--green); font-weight:700; flex-shrink:0; }
 
-  /* ---- results placeholder ---- */
-  .results-note{
-    background:var(--card); border:1px dashed var(--line); border-radius:18px; padding:40px;
-    text-align:center;
+  /* ---- results ---- */
+  .results-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media(max-width:1000px){ .results-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:640px){ .results-grid{grid-template-columns:1fr;} }
+  .result-card{ background:var(--card); border:1px solid var(--line); border-radius:18px; padding:28px; }
+  .result-icon{
+    width:44px; height:44px; border-radius:12px; background:var(--card-hi); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; color:var(--purple); margin-bottom:16px;
   }
-  .results-note h3{ font-size:1.2rem; font-weight:700; margin-bottom:10px; }
-  .results-note p{ color:var(--text-soft); font-size:0.94rem; max-width:520px; margin:0 auto; }
+  .result-icon svg{ width:22px; height:22px; }
+  .result-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+  .result-tag{ font-size:0.72rem; color:var(--purple); letter-spacing:0.03em; }
+  .result-case{ font-size:0.7rem; color:var(--text-faint); }
+  .result-card h3{ font-size:1.15rem; font-weight:700; margin-bottom:4px; }
+  .result-loc{ font-size:0.82rem; color:var(--text-faint); margin-bottom:18px; }
+  .result-stats{ display:flex; gap:28px; margin-bottom:16px; flex-wrap:wrap; }
+  .result-stats .num{ font-family:'Sora',sans-serif; font-weight:700; font-size:1.35rem; }
+  .result-stats .num.grad{ background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .result-stats .lbl{ font-size:0.68rem; color:var(--text-faint); margin-top:2px; }
+  .result-card p{ font-size:0.86rem; color:var(--text-soft); border-top:1px solid var(--line); padding-top:14px; }
+
+  .results-note{
+    background:var(--card); border:1px dashed var(--line); border-radius:18px; padding:32px;
+    text-align:center; margin-top:20px;
+  }
+  .results-note h3{ font-size:1.05rem; font-weight:700; margin-bottom:8px; }
+  .results-note p{ color:var(--text-soft); font-size:0.9rem; max-width:520px; margin:0 auto; }
 
   /* ---- process ---- */
   .process-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
@@ -189,15 +209,11 @@
   }
 
   /* ---- certifications ---- */
-  .cert-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
-  @media(max-width:700px){ .cert-grid{grid-template-columns:1fr;} }
-  .cert-card{ background:var(--card); border:1px solid var(--line); border-radius:18px; padding:28px; display:flex; gap:18px; align-items:flex-start; }
-  .cert-badge{
-    width:48px; height:48px; border-radius:12px; background:var(--grad); flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.95rem;
-  }
-  .cert-card h3{ font-size:1.02rem; font-weight:700; margin-bottom:6px; }
-  .cert-card p{ font-size:0.86rem; color:var(--text-soft); }
+  .cert-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  @media(max-width:900px){ .cert-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:520px){ .cert-grid{grid-template-columns:1fr;} }
+  .cert-card{ background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+  .cert-card img{ width:100%; display:block; }
 
   /* ---- about ---- */
   .about-grid{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:50px; align-items:start; }
@@ -270,6 +286,7 @@
       <span>Masudur Rahman<span class="sub" style="display:block;">GOOGLE ADS STRATEGIST</span></span>
     </div>
     <nav class="links">
+      <a href="#results">Results</a>
       <a href="#services">Services</a>
       <a href="#process">Process</a>
       <a href="#certifications">Certifications</a>
@@ -327,17 +344,230 @@
       <span><span class="dot"></span>Plumbing</span><span><span class="dot"></span>Electrical</span>
       <span><span class="dot"></span>General Contractors</span><span><span class="dot"></span>Water Damage Restoration</span>
       <span><span class="dot"></span>Flooring</span><span><span class="dot"></span>Landscaping</span>
-      <span><span class="dot"></span>Dental &amp; Medical</span><span><span class="dot"></span>Auto Repair</span>
-      <span><span class="dot"></span>E-Commerce</span><span><span class="dot"></span>Home Builders</span>
+      <span><span class="dot"></span>Dental &amp; Medical</span><span><span class="dot"></span>Auto Detailing</span>
+      <span><span class="dot"></span>Garage Doors</span><span><span class="dot"></span>Restoration</span>
       <span><span class="dot"></span>HVAC</span><span><span class="dot"></span>Roofing</span>
       <span><span class="dot"></span>Plumbing</span><span><span class="dot"></span>Electrical</span>
       <span><span class="dot"></span>General Contractors</span><span><span class="dot"></span>Water Damage Restoration</span>
       <span><span class="dot"></span>Flooring</span><span><span class="dot"></span>Landscaping</span>
-      <span><span class="dot"></span>Dental &amp; Medical</span><span><span class="dot"></span>Auto Repair</span>
-      <span><span class="dot"></span>E-Commerce</span><span><span class="dot"></span>Home Builders</span>
+      <span><span class="dot"></span>Dental &amp; Medical</span><span><span class="dot"></span>Auto Detailing</span>
+      <span><span class="dot"></span>Garage Doors</span><span><span class="dot"></span>Restoration</span>
     </div>
   </div>
 </div>
+
+<section id="results">
+  <div class="wrap">
+    <div class="section-top">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Results</div>
+        <h2>Real campaigns, real numbers.</h2>
+      </div>
+      <p class="section-sub">Figures below are taken directly from client-supplied case study reports.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 01</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><line x1="20" y1="4" x2="7.8" y2="15.5"/><line x1="14.5" y1="9.8" x2="20" y2="20"/><line x1="7.8" y1="8.5" x2="14.5" y2="14.2"/></svg></div>
+        <h3>Beauty Salon &amp; Skin Care</h3>
+        <div class="result-loc">Lake County, Illinois · Feb - May 2026</div>
+        <div class="result-stats">
+          <div><div class="num">$65 → <span class="grad">$35</span></div><div class="lbl">COST PER LEAD</div></div>
+          <div><div class="num grad">46%</div><div class="lbl">CPA REDUCTION</div></div>
+        </div>
+        <p>Facials, skin care and waxing lead generation for a spa serving Libertyville and surrounding Lake County.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 02</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.5-2-7.5-6-7.5-10.2A7.5 7.5 0 0112 3a7.5 7.5 0 017.5 7.8C19.5 15 16.5 19 12 21z"/><path d="M12 11v10"/></svg></div>
+        <h3>Therapy &amp; Wellness Center</h3>
+        <div class="result-loc">United States · Feb - Jun 2026</div>
+        <div class="result-stats">
+          <div><div class="num">$90 → <span class="grad">$45</span></div><div class="lbl">COST PER LEAD</div></div>
+          <div><div class="num grad">50%</div><div class="lbl">CPA REDUCTION</div></div>
+        </div>
+        <p>QHHT, SCHH and spiritual healing session bookings for a reflexology and therapeutic massage practice.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 03</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-1.6 0-2.6 1-3.8 1-1.3 0-2.2-1.2-3.4-1.2C3.3 3.3 3 5.3 3 7c0 3 1 5.2 1.6 8.2.3 1.7.9 4.3 2.4 4.3 1.2 0 1.3-2 1.8-4 .3-1.3.9-2.2 1.6-2.2s1.3.9 1.6 2.2c.5 2 .6 4 1.8 4 1.5 0 2.1-2.6 2.4-4.3C16.8 12.2 18 10 18 7c0-1.9-.4-3.8-1.9-3.8-1.1 0-2 1.2-3.3 1.2-1.1 0-1.6-.9-.8-.9z"/></svg></div>
+        <h3>Pediatric Dentistry</h3>
+        <div class="result-loc">Fort Myers &amp; Naples, Florida · Apr - Jun 2026</div>
+        <div class="result-stats">
+          <div><div class="num">$120 → <span class="grad">$60</span></div><div class="lbl">COST PER LEAD</div></div>
+          <div><div class="num grad">50%</div><div class="lbl">CPA REDUCTION</div></div>
+        </div>
+        <p>Appointment and call-lead generation for a pediatric dental and orthodontics practice.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 04</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.3 2.3-2.7-.7-.7-2.7z"/></svg></div>
+        <h3>Handyman Service</h3>
+        <div class="result-loc">Dayton, Ohio · May - Aug 2026</div>
+        <div class="result-stats">
+          <div><div class="num">642</div><div class="lbl">CLICKS</div></div>
+          <div><div class="num">42</div><div class="lbl">CONVERSIONS</div></div>
+          <div><div class="num grad">$50.64</div><div class="lbl">COST / CONVERSION</div></div>
+        </div>
+        <p>Local remodeling and handyman lead generation on $2.13K ad spend for Craft&amp;Repair.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 05</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l3-3 3 3v12"/><path d="M4 13h6"/><path d="M4 17h6"/><path d="M14 21V9l3-3 3 3v12"/><path d="M14 13h6"/><path d="M14 17h6"/></svg></div>
+        <h3>Deck &amp; Fence Builders</h3>
+        <div class="result-loc">Dayton, Ohio · May - Aug 2026</div>
+        <div class="result-stats">
+          <div><div class="num">642</div><div class="lbl">CLICKS</div></div>
+          <div><div class="num">42</div><div class="lbl">CONVERSIONS</div></div>
+          <div><div class="num grad">$50.64</div><div class="lbl">COST / CONVERSION</div></div>
+        </div>
+        <p>Custom deck and fence build, repair and replacement lead generation on $2.13K ad spend for Craft&amp;Repair.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 06</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5l9-8 9 8"/><path d="M5.5 10v10.5h13V10"/><rect x="10" y="14" width="4" height="6.5"/></svg></div>
+        <h3>Construction &amp; Remodeling</h3>
+        <div class="result-loc">Rochester, Minnesota · Feb - Jun 2026</div>
+        <div class="result-stats">
+          <div><div class="num grad">$120 - $300</div><div class="lbl">CPA RANGE</div></div>
+        </div>
+        <p>Roofing and exterior remodeling lead generation, including roof repair, siding, gutters and decks, for a construction company serving since 1981.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 07</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6.5 7l1 13h9l1-13"/><line x1="10" y1="10.5" x2="10" y2="17"/><line x1="14" y1="10.5" x2="14" y2="17"/></svg></div>
+        <h3>Junk Removal &amp; Clearance</h3>
+        <div class="result-loc">Germany · Feb - Jun 2026</div>
+        <div class="result-stats">
+          <div><div class="num grad">$45 - $93</div><div class="lbl">CPA RANGE</div></div>
+        </div>
+        <p>Household and commercial clearance, decluttering and disposal lead generation across four service segments.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 08</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8.5" width="11" height="8.5"/><path d="M13 11h3.5L20 14.5V17h-7z"/><circle cx="6.5" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/></svg></div>
+        <h3>Moving Service</h3>
+        <div class="result-loc">Sacramento, California · Feb - Mar 2026</div>
+        <div class="result-stats">
+          <div><div class="num">554</div><div class="lbl">CLICKS</div></div>
+          <div><div class="num">84</div><div class="lbl">CONVERSIONS</div></div>
+          <div><div class="num grad">$127</div><div class="lbl">COST / CONVERSION</div></div>
+        </div>
+        <p>Local and long-distance moving leads across 7 service segments on $10.7K ad spend for a licensed, insured moving company.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 09</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="3.5" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="20.5"/><line x1="4" y1="7.5" x2="8" y2="10"/><line x1="16" y1="14" x2="20" y2="16.5"/><line x1="4" y1="16.5" x2="8" y2="14"/><line x1="16" y1="10" x2="20" y2="7.5"/></svg></div>
+        <h3>Pest Control</h3>
+        <div class="result-loc">Staten Island, New York · Feb - Jun 2026</div>
+        <div class="result-stats">
+          <div><div class="num">$80 → <span class="grad">$45</span></div><div class="lbl">COST PER LEAD</div></div>
+          <div><div class="num grad">44%</div><div class="lbl">CPA REDUCTION</div></div>
+        </div>
+        <p>Calls and quote leads across bed bugs, roaches, rodents, ants and mosquito control for a 20-year local exterminator.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 10</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l4 6h-3l4 6h-3.2l3.2 6H6.8L10 15H6.8l4-6H8z"/><line x1="12" y1="21" x2="12" y2="17"/></svg></div>
+        <h3>Tree Services</h3>
+        <div class="result-loc">Melton &amp; Sunbury, Victoria, Australia</div>
+        <div class="result-stats">
+          <div><div class="num">$85 → <span class="grad">$55</span></div><div class="lbl">COST PER LEAD</div></div>
+          <div><div class="num grad">35%</div><div class="lbl">CPA REDUCTION</div></div>
+        </div>
+        <p>Call and quote leads across 6 core service groups: tree cutting, mulching, lopping, removal, stump grinding and hedge trimming.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 11</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1.8"/><path d="M12 10.2c0-3 2-5.2 5-5.2"/><path d="M13.8 12c3 0 5.2 2 5.2 5"/><path d="M12 13.8c0 3-2 5.2-5 5.2"/><path d="M10.2 12c-3 0-5.2-2-5.2-5"/></svg></div>
+        <h3>Air Duct &amp; Dryer Vent Cleaning</h3>
+        <div class="result-loc">Central Florida</div>
+        <div class="result-stats">
+          <div><div class="num">$75 → <span class="grad">$35</span></div><div class="lbl">COST PER LEAD</div></div>
+          <div><div class="num grad">53%</div><div class="lbl">CPA REDUCTION</div></div>
+        </div>
+        <p>Call and quote leads for professional air duct and dryer vent cleaning, with service segmented by intent and location.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 12</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5l9-8 9 8"/><path d="M5.5 10v10.5h13V10"/><path d="M12 12.5s2.2 2.4 2.2 4.3a2.2 2.2 0 11-4.4 0c0-1.9 2.2-4.3 2.2-4.3z" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Property Damage Restoration</h3>
+        <div class="result-loc">Florida · Mar - Jun 2026</div>
+        <div class="result-stats">
+          <div><div class="num">$280 → <span class="grad">$100</span></div><div class="lbl">COST PER LEAD</div></div>
+          <div><div class="num grad">64%</div><div class="lbl">CPA REDUCTION</div></div>
+        </div>
+        <p>Water damage, fire &amp; smoke, mold remediation, roofing and sewage/septic emergency response lead generation for a 24/7 property damage referral network.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 13</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.5l9-8 9 8"/><line x1="17" y1="7" x2="17" y2="3"/><line x1="15" y1="3" x2="19" y2="3"/><path d="M6 11.5v9.5h12v-9.5"/></svg></div>
+        <h3>Roofing &amp; Chimney</h3>
+        <div class="result-loc">Long Island, New York · Jan - May 2026</div>
+        <div class="result-stats">
+          <div><div class="num">$280 → <span class="grad">$140</span></div><div class="lbl">COST PER LEAD</div></div>
+          <div><div class="num grad">50%</div><div class="lbl">CPA REDUCTION</div></div>
+        </div>
+        <p>Roof repair, replacement and chimney service lead generation for a trusted Long Island roofing contractor.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 14</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M4 11h16v10H4z"/><line x1="4" y1="14.3" x2="20" y2="14.3"/><line x1="4" y1="17.6" x2="20" y2="17.6"/></svg></div>
+        <h3>Garage Door Repair &amp; Installation</h3>
+        <div class="result-loc">Northeast Ohio · Feb - May 2026</div>
+        <div class="result-stats">
+          <div><div class="num">$96 → <span class="grad">$64</span></div><div class="lbl">COST PER LEAD</div></div>
+          <div><div class="num grad">33%</div><div class="lbl">CPA REDUCTION</div></div>
+        </div>
+        <p>Residential and commercial garage door repair, spring replacement and installation lead generation across Northeast Ohio.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 15</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5L4.5 14H10l-1 7.5 8.5-11.5H12z"/></svg></div>
+        <h3>Electrical Services</h3>
+        <div class="result-loc">New Jersey · Mar - May 2026</div>
+        <div class="result-stats">
+          <div><div class="num grad">$60 - $100</div><div class="lbl">CPA RANGE</div></div>
+        </div>
+        <p>Emergency electrician, panel upgrades, generator and EV charger lead generation for a family-owned New Jersey electrical company.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 16</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5s7 8 7 13a7 7 0 11-14 0c0-5 7-13 7-13z"/></svg></div>
+        <h3>Plumbing Services</h3>
+        <div class="result-loc">Montgomery &amp; Bucks Counties, Pennsylvania · Jan - Jun 2026</div>
+        <div class="result-stats">
+          <div><div class="num grad">$40 - $70</div><div class="lbl">CPA RANGE</div></div>
+        </div>
+        <p>Emergency plumbing, drain cleaning, water heater and leak detection lead generation across Montgomery and Bucks Counties.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 17</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2.5" x2="12" y2="21.5"/><line x1="4.5" y1="7" x2="19.5" y2="17"/><line x1="4.5" y1="17" x2="19.5" y2="7"/></svg></div>
+        <h3>HVAC / AC Repair</h3>
+        <div class="result-loc">Florida Panhandle · Apr - Jun 2026</div>
+        <div class="result-stats">
+          <div><div class="num grad">$70.00</div><div class="lbl">COST / CONVERSION</div></div>
+        </div>
+        <p>AC repair, emergency HVAC and same-day cooling service lead generation held to a steady $70 CPA benchmark across the Florida Panhandle.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-top"><span class="result-tag">LOCAL LEAD GEN</span><span class="result-case">CASE 18</span></div>
+        <div class="result-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 13.5l2-6h13l2 6"/><rect x="2" y="13.5" width="20" height="6" rx="2"/><circle cx="7" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg></div>
+        <h3>Mobile Auto Detailing</h3>
+        <div class="result-loc">Maui County, Hawaii · Apr - Jun 2026</div>
+        <div class="result-stats">
+          <div><div class="num grad">$48.18</div><div class="lbl">COST / CONVERSION</div></div>
+        </div>
+        <p>Mobile car detailing, ceramic coating and premium vehicle-care lead generation across Maui County.</p>
+      </div>
+    </div>
+    <div class="results-note">
+      <h3>Want to see more?</h3>
+      <p>I'll walk you through additional results from campaigns in your industry during a free audit call, with client details kept appropriately private.</p>
+    </div>
+  </div>
+</section>
 
 <section id="services">
   <div class="wrap">
@@ -381,72 +611,6 @@
           <li>Looker Studio reporting</li>
           <li>Local search visibility</li>
         </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="results">
-  <div class="wrap">
-    <div class="section-top">
-      <div>
-        <div class="eyebrow"><span class="dot"></span>Results</div>
-        <h2>Real campaigns, shared on request.</h2>
-      </div>
-      <p class="section-sub">Case studies are shared directly with prospective clients, not published with client details here.</p>
-    </div>
-    <div class="results-note">
-      <h3>Want to see real numbers?</h3>
-      <p>I'll walk you through actual before/after results from campaigns in your industry during a free audit call, with client details kept appropriately private.</p>
-    </div>
-  </div>
-</section>
-
-<section id="testimonials">
-  <div class="wrap">
-    <div class="section-top">
-      <div>
-        <div class="eyebrow"><span class="dot"></span>Client Reviews</div>
-        <h2>What clients actually say.</h2>
-      </div>
-      <p class="section-sub">Reviews from Fiverr clients, unedited.</p>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-top">
-          <div class="testi-avatar">M</div>
-          <div><div class="testi-name">Matthew_antho</div><div class="testi-loc">United Kingdom</div></div>
-        </div>
-        <div class="stars">★★★★★</div>
-        <p>Outstanding experience. He set up my Google Ads campaign for our local service business with great attention to detail. Very skilled, responsive, and results-focused, I'll definitely work with him again for future campaigns.</p>
-        <div class="testi-source">Fiverr client</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-top">
-          <div class="testi-avatar">N</div>
-          <div><div class="testi-name">Nasigara</div><div class="testi-loc">United States</div></div>
-        </div>
-        <div class="stars">★★★★★</div>
-        <p>Masud did an excellent job helping me improve my Google Business Profile. I would definitely recommend Masud to anyone looking for local SEO, citations, and Google Business Profile optimization services. Thank you for your great work!</p>
-        <div class="testi-source">Fiverr client</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-top">
-          <div class="testi-avatar">M</div>
-          <div><div class="testi-name">Mssheena</div><div class="testi-loc">United States</div></div>
-        </div>
-        <div class="stars">★★★★★</div>
-        <p>He did a great job in auditing our site and offered invaluable insights and action plans. We will certainly have him manage the campaign and trust he will deliver great work as well! Highly recommend.</p>
-        <div class="testi-source">Fiverr client</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-top">
-          <div class="testi-avatar">S</div>
-          <div><div class="testi-name">Skyvet45</div><div class="testi-loc">United States</div></div>
-        </div>
-        <div class="stars">★★★★★</div>
-        <p>Great guy, true professional. Looking forward to working together long-term.</p>
-        <div class="testi-source">Fiverr client</div>
       </div>
     </div>
   </div>
@@ -497,22 +661,82 @@
         <div class="eyebrow"><span class="dot"></span>Certifications</div>
         <h2>Officially certified by Google.</h2>
       </div>
-      <p class="section-sub">Verified credentials, kept current as Google Ads evolves.</p>
+      <p class="section-sub">8 active Skillshop credentials, kept current as Google Ads evolves.</p>
     </div>
     <div class="cert-grid">
       <div class="cert-card">
-        <div class="cert-badge">G</div>
-        <div>
-          <h3>Google Ads Certified</h3>
-          <p>Certified PPC Expert across Search and account management, verified by Google.</p>
-        </div>
+        <img src="certs/cert-conversion-optimization.png" alt="Conversion Optimization Certification Exam — August 16, 2025 — Skillshop">
       </div>
       <div class="cert-card">
-        <div class="cert-badge">CO</div>
-        <div>
-          <h3>Conversion Optimization Certification</h3>
-          <p>Certified in conversion rate optimization, applied to landing pages and campaign structure.</p>
+        <img src="certs/cert-shopping-ads.png" alt="AI-Powered Shopping Ads Certification — July 26, 2025 — Skillshop">
+      </div>
+      <div class="cert-card">
+        <img src="certs/cert-display.png" alt="Google Ads Display Certification — July 25, 2025 — Skillshop">
+      </div>
+      <div class="cert-card">
+        <img src="certs/cert-apps.png" alt="Google Ads Apps Certification — July 25, 2025 — Skillshop">
+      </div>
+      <div class="cert-card">
+        <img src="certs/cert-measurement.png" alt="Google Ads Measurement Certification — July 24, 2025 — Skillshop">
+      </div>
+      <div class="cert-card">
+        <img src="certs/cert-ai-performance.png" alt="AI-Powered Performance Ads Certification — March 9, 2025 — Skillshop">
+      </div>
+      <div class="cert-card">
+        <img src="certs/cert-analytics.png" alt="Google Analytics Certification — December 9, 2024 — Skillshop">
+      </div>
+      <div class="cert-card">
+        <img src="certs/cert-search.png" alt="Google Ads Search Certification — December 8, 2024 — Skillshop">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-top">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Client Reviews</div>
+        <h2>What clients actually say.</h2>
+      </div>
+      <p class="section-sub">Reviews from Fiverr clients, unedited.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar">M</div>
+          <div><div class="testi-name">Matthew_antho</div><div class="testi-loc">United Kingdom</div></div>
         </div>
+        <div class="stars">★★★★★</div>
+        <p>Outstanding experience. He set up my Google Ads campaign for our local service business with great attention to detail. Very skilled, responsive, and results-focused, I'll definitely work with him again for future campaigns.</p>
+        <div class="testi-source">Fiverr client</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar">N</div>
+          <div><div class="testi-name">Nasigara</div><div class="testi-loc">United States</div></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p>Masud did an excellent job helping me improve my Google Business Profile. I would definitely recommend Masud to anyone looking for local SEO, citations, and Google Business Profile optimization services. Thank you for your great work!</p>
+        <div class="testi-source">Fiverr client</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar">M</div>
+          <div><div class="testi-name">Mssheena</div><div class="testi-loc">United States</div></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p>He did a great job in auditing our site and offered invaluable insights and action plans. We will certainly have him manage the campaign and trust he will deliver great work as well! Highly recommend.</p>
+        <div class="testi-source">Fiverr client</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar">S</div>
+          <div><div class="testi-name">Skyvet45</div><div class="testi-loc">United States</div></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p>Great guy, true professional. Looking forward to working together long-term.</p>
+        <div class="testi-source">Fiverr client</div>
       </div>
     </div>
   </div>
